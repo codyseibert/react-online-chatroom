@@ -6,7 +6,6 @@ import { RoomsPanel } from '../components/home/RoomsPanel';
 import { CreateRoomModal } from '../components/home/CreateRoomModal';
 import { WelcomePanel } from '../components/home/WelcomePanel';
 import { ChatPanel } from '../components/home/ChatPanel';
-import Header from '../components/Header';
 import { unstable_getServerSession } from 'next-auth';
 import { authOptions } from './api/auth/[...nextauth]';
 import { withHeader } from '../hoc/withHeader';

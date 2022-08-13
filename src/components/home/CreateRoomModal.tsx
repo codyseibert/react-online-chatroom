@@ -11,12 +11,10 @@ type Props = {
 }
 
 export const CreateRoomModal: FC<Props> = ({ isOpen, setIsOpen, onRoomCreated }) => {
-
   const [name, setName] = useState('');
-  const [error, setError] = useState('');
 
   const createRoom = trpc.useMutation(
-    'createRoom'
+    'rooms.createRoom'
   );
 
   const handleCreateRoom = async () => {

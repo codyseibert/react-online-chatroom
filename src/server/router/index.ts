@@ -1,7 +1,5 @@
-// src/server/router/index.ts
-import { createRouter } from './context';
 import superjson from 'superjson';
-import { isLoggedInMiddleware } from './middleware/isLoggedInMiddleware';
+import { createRouter } from './context';
 import { joinRoom } from './rooms/joinRoom';
 import { createRoom } from './rooms/createRoom';
 import { getUsersInRoom } from './rooms/getUsersInRoom';
@@ -11,12 +9,11 @@ import { storeMessage } from './rooms/storeMessage';
 
 export const appRouter = createRouter()
   .transformer(superjson)
-  .middleware(isLoggedInMiddleware)
-  .mutation('joinRoom', joinRoom)
-  .mutation('createRoom', createRoom)
-  .mutation('storeMessage', storeMessage)
-  .query('getUsersInRoom', getUsersInRoom)
-  .query('getRooms', getRooms)
-  .query('getMessages', getMessages);
+  .merge('rooms.', joinRoom)
+  .merge('rooms.', createRoom)
+  .merge('rooms.', storeMessage)
+  .merge('rooms.', getUsersInRoom)
+  .merge('rooms.', getRooms)
+  .merge('rooms.', getMessages);
 
 export type AppRouter = typeof appRouter;

@@ -11,7 +11,7 @@ export type Message = {
 export const useGetMessages = (selectedRoom: string) => {
   const [messages, setMessages] = useState<Message[]>([]);
 
-  const { refetch: refetchMessages } = trpc.useQuery(['getMessages', {
+  const { refetch: refetchMessages } = trpc.useQuery(['rooms.getMessages', {
     roomId: selectedRoom
   }], {
     enabled: false,
