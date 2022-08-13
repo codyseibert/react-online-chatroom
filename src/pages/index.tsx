@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       <Header />
 
       {withHeader(
-        <main className="mx-auto flex p-4 gap-8 flex-grow">
+        <main className="container mx-auto flex p-12 gap-8 flex-grow">
           Please login to create a chat room and talk with others
         </main>
       )}

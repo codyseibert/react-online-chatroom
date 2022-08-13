@@ -1,4 +1,5 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { PrimaryButton } from './buttons/PrimaryButton';
@@ -11,14 +12,16 @@ const Header = () => {
   return (
     <div className="absolute w-full h-14 bg-blue-300 shadow-lg">
       <div className="container h-full mx-auto flex justify-between items-center">
-        <div>online chat</div>
+        <div>ONLINE CHAT</div>
         <div>
           {isLoggedIn && <div className="flex gap-4 items-center">
-            <img
+            <Image
               referrerPolicy="no-referrer"
               className="h-8 w-8 rounded-full"
-              src={session.data?.user?.image}
+              src={session.data?.user?.image || ''}
               alt=""
+              width="30"
+              height="30"
             />
             {session.data?.user?.name}
             <SecondaryButton
@@ -28,7 +31,7 @@ const Header = () => {
             </SecondaryButton>
           </div>}
 
-          {!isLoggedIn && <PrimaryButton onClick={signIn}>Sign In</PrimaryButton>}
+          {!isLoggedIn && <SecondaryButton onClick={signIn}>Sign In</SecondaryButton>}
         </div>
       </div>
     </div>

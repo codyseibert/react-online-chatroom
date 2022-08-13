@@ -10,7 +10,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
   return <Button
     onClick={onClick}
     {...rest}
-    className={'p-2 hover:bg-gray-200 bg-gray-300'}
+    className={'p-2 hover:bg-gray-100 bg-gray-50 rounded'}
   >
     {children}
   </Button>;

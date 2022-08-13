@@ -35,7 +35,9 @@ CREATE TABLE "User" (
     "name" TEXT,
     "email" TEXT,
     "emailVerified" DATETIME,
-    "image" TEXT
+    "image" TEXT,
+    "roomName" TEXT,
+    CONSTRAINT "User_roomName_fkey" FOREIGN KEY ("roomName") REFERENCES "Room" ("name") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -47,7 +49,19 @@ CREATE TABLE "VerificationToken" (
 
 -- CreateTable
 CREATE TABLE "Room" (
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateTable
+CREATE TABLE "Message" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "userId" TEXT NOT NULL,
+    "roomId" TEXT NOT NULL,
+    "text" TEXT NOT NULL,
+    "image" TEXT,
+    "name" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateIndex

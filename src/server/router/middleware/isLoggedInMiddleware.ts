@@ -11,11 +11,7 @@ interface AuthenticatedRouterContext extends RouterContext {
 interface Meta {
 }
 
-export const isLoggedInMiddleware: MiddlewareFunction<
-  RouterContext,
-  AuthenticatedRouterContext,
-  Meta
-> =
+export const isLoggedInMiddleware: MiddlewareFunction<RouterContext, AuthenticatedRouterContext, Meta> =
   async ({ ctx, next }) => {
     if (!ctx.session) {
       throw new TRPCError({

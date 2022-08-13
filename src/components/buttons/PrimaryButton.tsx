@@ -9,7 +9,7 @@ export const PrimaryButton: FC<ButtonProps> = ({
   return <Button
     onClick={onClick}
     {...rest}
-    className={'p-2 bg-blue-400 hover:bg-blue-300'}
+    className={'p-2 bg-blue-300 hover:bg-blue-400 rounded text-white'}
   >
     {children}
   </Button>;

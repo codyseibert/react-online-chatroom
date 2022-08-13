@@ -16,7 +16,7 @@ export const CreateRoomModal: FC<Props> = ({ isOpen, setIsOpen, onRoomCreated })
   const [error, setError] = useState('');
 
   const createRoom = trpc.useMutation(
-    'createRoom',
+    'createRoom'
   );
 
   const handleCreateRoom = async () => {
